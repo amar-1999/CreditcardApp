@@ -1,0 +1,71 @@
+<!-- Form Payment -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <div class="card">
+        <div class="card-header">
+          <h3>Credit Card Payment Form</h3>
+        </div>
+        <div class="card-body">
+          <!-- Credit Card Details Form -->
+          <form class="form" [formGroup]="creditCardPaymentDetails" #ccPaymentForm="ngForm"
+            (ngSubmit)="onSubmit(ccPaymentForm.form)">
+
+            <div class="form-group">
+              <label>Credit Card Number</label>
+              <input type="text" class="form-control" formControlName="creditCardNumber">
+              <span class="text-danger"
+                *ngIf="(paymentForm.creditCardNumber.touched || submitted) && paymentForm.creditCardNumber.errors?.required">
+                Field is required
+              </span>
+            </div>
+
+            <div class="form-group">
+              <label>Card Holder</label>
+              <input type="text" class="form-control" formControlName="cardHolder">
+              <span class="text-danger"
+                *ngIf="(paymentForm.cardHolder.touched || submitted) && paymentForm.cardHolder.errors?.required">
+                Field is required
+              </span>
+            </div>
+
+            <div class="form-group">
+              <label>Expiration Date</label>
+              <ng2-flatpickr [config]="expirationDateOptions" formControlName="expirationDate" name="basicDate">
+              </ng2-flatpickr>
+              <span class="text-danger"
+                *ngIf="(paymentForm.expirationDate.touched || submitted) && paymentForm.expirationDate.errors?.required">
+                Field is required
+              </span>
+            </div>
+
+            <div class="form-group">
+              <label>Security Code <small>(Optional)</small></label>
+              <input type="text" class="form-control" formControlName="securityCode">
+              <span class="text-danger"
+                *ngIf="(paymentForm.securityCode.touched || submitted) && paymentForm.securityCode.invalid">
+                Please enter valid Security Code
+              </span>
+            </div>
+            <div class="form-group">
+              <label>Amount</label>
+              <input type="number" class="form-control" formControlName="amount">
+              <span class="text-danger" *ngIf="(paymentForm.amount.touched && submitted) && paymentForm.amount.invalid">
+                Amount Must be valid
+              </span>
+              <span class="d-block text-danger" *ngIf="submitted && paymentForm.amount.errors?.required">
+                Field is required
+              </span>
+            </div>
+
+            <div class="form-group">
+              <button type="submit" class="btn btn-success">Register</button>
+            </div>
+          </form>
+          <!--/ Credit Card Details Form -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/ Form Payment -->
