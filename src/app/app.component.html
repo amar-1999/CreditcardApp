@@ -1,0 +1,27 @@
+ <div class="container-fluid">
+  <h2 class="text-center border-bottom p-3">Credit Card Payment details App</h2>
+  <div class="row">
+    <div class=" col-12 col-md-6 d-flex justify-content-center pt-5">
+      <div class="navigation-and-output">
+        <button class="btn btn-primary mb-5" [routerLink]="'/payment-form'">Navigate To Payment Form</button>
+
+        <!-- Credit Card Payment Model Output -->
+        <h5 class="mb-3">OUTPUT</h5>
+        <p> Credit Card Number : {{creditCardDetail.creditCardNumber}}</p>
+        <p> Card Holder : {{creditCardDetail.cardHolder}}</p>
+        <p> Expiration Date : {{creditCardDetail.expirationDate}}</p>
+        <p> Security Code : {{creditCardDetail.securityCode}}</p>
+        <p> Amount : {{creditCardDetail.amount}}</p>
+        <!--/ Credit Card Payment Model Output -->
+
+      </div>
+    </div>
+    <div class=" col-12 col-md-6">
+
+      <!-- Router Outlet -->
+      <router-outlet></router-outlet>
+      <!--/ Router Outlet -->
+
+    </div>
+  </div>
+</div>
